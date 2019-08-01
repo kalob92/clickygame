@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Card from './components/cards/card.js';
+import Navbar from './components/navbar.js';
+import Footer from './components/footer.js'
+import cards from './cards.json';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    cards,
+    score: 0,
+    totalScore: 0
+  }
+
+  render() {
+    return (
+      <div className='bg-secondary'>
+        <Navbar />
+        <div className="container row pt-3 px-4 mx-auto mb-3">
+          {
+            this.state.cards.map(
+              card => (
+                <Card
+                  id={card.id}
+                  name={card.name}
+                  image={card.image}
+                  count={card.count}
+                />
+              )
+            )
+          }
+        </div>
+        <Footer />
+      </div>
+    )
+  }
 }
 
 export default App;
