@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Card from './components/cards/card';
-import Navbar from './components/navbar';
-import Footer from './components/footer'
+// import Wrapper from './components/Wrapper';
+import Navbar from './components/Navbar';
+import Card from './components/Card';
+import Footer from './components/Footer';
 import devitos from './devito.json';
 import './App.css';
 
@@ -15,32 +16,39 @@ class App extends Component {
   gameOver = () => {
     if (this.state.score > this.state.totalScore) {
       this.setState({totalScore: this.state.score});
-    }
+    };
     this.state.devitos.forEach(devito => {
       devito.count = 0;
-    })
-    alert(`Game Over! Your score was ${this.state.score}. The High Score is ${this.state.totalScore}!`)
+    });
+    alert(`Game Over! Your score was ${this.state.score}. The High Score is ${this.state.totalScore}!`);
     return true;
   }
 
-  scoreAdd(id) {
-    this.state.devitos.find((o, i) => {
-      if (o.id === id) {
-        if(devitos[i].count === 0) {
-          devitos[i].count = devitos[i].count++;
-          this.setState({score: this.state.score + 1}, function() {
-            console.log(this.state.score);
-          });
-          this.state.devitos.sort(() => Math.random() - 0.5)
-          return true;
-        } else {
-          return this.gameOver();
-        }
-      } else {
-        return false;
-      }
-    })
+  // scoreAdd = () => {
+  //   this.state.devitos.find((o, i) => {
+  //     console.log(o);
+  //     if (o.id === id) {
+  //       console.log(`i is : ${i}`);
+  //       if(devitos[i].count === 0){
+  //         devitos[i].count = devitos[i].count + 1;
+  //         this.setState((state) => {
+  //           return {score : state.score + 1}, function(){
+  //             console.log(state.score);
+  //           }
+  //         });
+  //         this.state.devitos.sort(() => Math.random() - 0.5)
+  //         return true; 
+  //       } else {
+  //         return this.gameOver()
+  //       }
+  //     }
+  //   });
+  // }
+
+  handleClick = (id) => {
+    console.log('this is', this.state.devitos.id);
   }
+
 
   render() {
     return (
@@ -51,25 +59,28 @@ class App extends Component {
         />
         <div className="container content-row pt-3 px-4 mx-auto">
           <div className='row'>
-            {
-              this.state.devitos.map(
-                devito => (
-                  <Card
-                    key={devito.id}
-                    name={devito.name}
-                    image={devito.image}
-                    count={devito.count}
-                    onClick={this.scoreAdd}
-                  />
+            {/* <Wrapper> */}
+              {
+                this.state.devitos.map(
+                  devito => (
+                    <Card
+                      key={devito.id}
+                      name={devito.name}
+                      image={devito.image}
+                      count={devito.count}
+                      handleClick={this.handleClick}
+                    />
+                  )
                 )
-              )
-            }
+              }
+            {/* </Wrapper> */}
           </div>
         </div>
         <Footer />
       </div>
     )
   };
+
 }
 
 export default App;
