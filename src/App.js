@@ -24,29 +24,30 @@ class App extends Component {
     return true;
   }
 
-  // scoreAdd = () => {
-  //   this.state.devitos.find((o, i) => {
-  //     console.log(o);
-  //     if (o.id === id) {
-  //       console.log(`i is : ${i}`);
-  //       if(devitos[i].count === 0){
-  //         devitos[i].count = devitos[i].count + 1;
-  //         this.setState((state) => {
-  //           return {score : state.score + 1}, function(){
-  //             console.log(state.score);
-  //           }
-  //         });
-  //         this.state.devitos.sort(() => Math.random() - 0.5)
-  //         return true; 
-  //       } else {
-  //         return this.gameOver()
-  //       }
-  //     }
-  //   });
-  // }
+  scoreAdd = (id) => {
+    this.state.devitos.find((o, i) => {
+      console.log(o);
+      if (o.id === id) {
+        console.log(`i is : ${i}`);
+        if(devitos[i].count === 0){
+          devitos[i].count = devitos[i].count + 1;
+          this.setState((state) => {
+            return {score : state.score + 1}, function(){
+              console.log(state.score);
+            }
+          });
+          this.state.devitos.sort(() => Math.random() - 0.5)
+          return true; 
+        } else {
+          return this.gameOver()
+        }
+      }
+    });
+  }
 
   handleClick = (id) => {
     console.log('this is', this.state.devitos.id);
+    this.scoreAdd(id);
   }
 
 
