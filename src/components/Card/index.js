@@ -10,7 +10,6 @@ function Card(props) {
                     alt={props.name}
                     src={props.image}
                     onClick={() => props.scoreAdd(props.id)}
-                    // onClick={() => props.handleClick(props.id)}
                 />
             </div>
         </div>

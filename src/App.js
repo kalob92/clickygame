@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Wrapper from './components/Wrapper';
 import Navbar from './components/Navbar';
 import Card from './components/Card';
 import Footer from './components/Footer';
@@ -46,13 +45,6 @@ class App extends Component {
     });
   }
 
-  handleClick = (id) => {
-    
-    console.log('this is', this.state.devitos);
-    this.scoreAdd(id);
-  }
-
-
   render() {
     return (
       <div className='everything'>
@@ -62,7 +54,6 @@ class App extends Component {
         />
         <div className="container content-row pt-3 px-4 mx-auto">
           <div className='row'>
-            {/* <Wrapper> */}
               {
                 this.state.devitos.map(
                   devito => (
@@ -73,19 +64,16 @@ class App extends Component {
                       image={devito.image}
                       count={devito.count}
                       scoreAdd={this.scoreAdd}
-                      // handleClick={this.handleClick}
                     />
                   )
                 )
               }
-            {/* </Wrapper> */}
           </div>
         </div>
         <Footer />
       </div>
     )
   };
-
 }
 
 export default App;
