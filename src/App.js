@@ -5,7 +5,6 @@ import Card from './components/Card';
 import Footer from './components/Footer';
 import devitos from './devito.json';
 import './App.css';
-import { on } from 'cluster';
 
 class App extends Component {
   state = {
@@ -22,6 +21,7 @@ class App extends Component {
       devito.count = 0;
     });
     alert(`Game Over! Your score was ${this.state.score}. The High Score is ${this.state.totalScore}!`);
+    this.setState({score: 0});
     return true;
   }
 
@@ -31,16 +31,16 @@ class App extends Component {
       if (o.id === id) {
         console.log(`i is : ${i}`);
         if(devitos[i].count === 0){
+          console.log(`if devitos[i].count === 0`);
           devitos[i].count = devitos[i].count + 1;
-          this.setState((state) => {
-            return {score : state.score + 1}, function(){
-              console.log(state.score);
-            }
+          this.setState({score : this.state.score + 1}, function(){
+            console.log(this.state.score);
           });
           this.state.devitos.sort(() => Math.random() - 0.5)
           return true; 
         } else {
-          return this.gameOver()
+          console.log(`gameover()`);
+          this.gameOver();
         }
       }
     });
@@ -68,10 +68,12 @@ class App extends Component {
                   devito => (
                     <Card
                       key={devito.id}
+                      id={devito.id}
                       name={devito.name}
                       image={devito.image}
                       count={devito.count}
-                      handleClick={this.handleClick}
+                      scoreAdd={this.scoreAdd}
+                      // handleClick={this.handleClick}
                     />
                   )
                 )

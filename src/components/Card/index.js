@@ -9,8 +9,8 @@ function Card(props) {
                     className='card-img-top'
                     alt={props.name}
                     src={props.image}
-                    // onClick={() => props.scoreAdd(props.id)}
-                    onClick={() => props.handleClick(props.id)}
+                    onClick={() => props.scoreAdd(props.id)}
+                    // onClick={() => props.handleClick(props.id)}
                 />
             </div>
         </div>
