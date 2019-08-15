@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/clickygame/static/css/main.e9be5096.chunk.css",
+    "main.js": "/clickygame/static/js/main.039d727f.chunk.js",
+    "main.js.map": "/clickygame/static/js/main.039d727f.chunk.js.map",
+    "runtime~main.js": "/clickygame/static/js/runtime~main.bb8261cb.js",
+    "runtime~main.js.map": "/clickygame/static/js/runtime~main.bb8261cb.js.map",
+    "static/js/2.a54fe88c.chunk.js": "/clickygame/static/js/2.a54fe88c.chunk.js",
+    "static/js/2.a54fe88c.chunk.js.map": "/clickygame/static/js/2.a54fe88c.chunk.js.map",
+    "index.html": "/clickygame/index.html",
+    "precache-manifest.441e8afdd48bbdb9abc9074457ef098e.js": "/clickygame/precache-manifest.441e8afdd48bbdb9abc9074457ef098e.js",
+    "service-worker.js": "/clickygame/service-worker.js",
+    "static/css/main.e9be5096.chunk.css.map": "/clickygame/static/css/main.e9be5096.chunk.css.map",
+    "static/media/App.css": "/clickygame/static/media/black-felt.243dcd13.png"
+  }
+}
