@@ -5,6 +5,7 @@ import Card from './components/Card';
 import Footer from './components/Footer';
 import devitos from './devito.json';
 import './App.css';
+import { on } from 'cluster';
 
 class App extends Component {
   state = {
@@ -26,7 +27,7 @@ class App extends Component {
 
   scoreAdd = (id) => {
     this.state.devitos.find((o, i) => {
-      console.log(o);
+      // console.log(o);
       if (o.id === id) {
         console.log(`i is : ${i}`);
         if(devitos[i].count === 0){
@@ -46,7 +47,8 @@ class App extends Component {
   }
 
   handleClick = (id) => {
-    console.log('this is', this.state.devitos.id);
+    
+    console.log('this is', this.state.devitos);
     this.scoreAdd(id);
   }
 
